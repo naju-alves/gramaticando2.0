@@ -1,0 +1,9 @@
+GRAMATICANDO — código-fonte
+
+Inclui interface, funções de servidor e migrações do banco PostgreSQL do Lovable Cloud, conforme opção autorizada. Não é um pacote MySQL.
+
+Alunos e professores possuem o mesmo acesso de estudo; não há administração no site. Conteúdos e exercícios reais ainda precisam ser cadastrados.
+
+Para desenvolvimento: instale Bun, execute bun install e bun run dev. Configure as variáveis de ambiente necessárias para sua própria infraestrutura. Segredos e o arquivo .env foram excluídos. O banco em produção, registros de usuários e senhas não estão neste arquivo.
+
+Variáveis utilizadas: SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY (ou SUPABASE_ANON_KEY), SUPABASE_SERVICE_ROLE_KEY, SESSION_SECRET, VITE_SUPABASE_URL e VITE_SUPABASE_PUBLISHABLE_KEY. Não compartilhe valores secretos.

@@ -1,0 +1,128 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * Design system do Gramaticando — "Caderno de português".
+ * Todas as cores, fontes e animações vivem aqui como tokens semânticos.
+ */
+
+@theme {
+  --color-paper: hsl(40 45% 97%);
+  --color-ink: hsl(28 20% 16%);
+  --color-muted: hsl(28 12% 42%);
+  --color-line: hsl(28 20% 16% / 0.1);
+  --color-accent: hsl(23 78% 47%);
+  --color-accent-soft: hsl(23 80% 94%);
+  --color-p1: hsl(205 58% 42%);
+  --color-p1-soft: hsl(205 60% 93%);
+  --color-p2: hsl(150 42% 34%);
+  --color-p2-soft: hsl(150 45% 93%);
+  --color-p3: hsl(350 70% 48%);
+  --color-p3-soft: hsl(350 78% 94%);
+  --color-good: hsl(152 52% 38%);
+  --color-good-soft: hsl(152 55% 94%);
+  --color-bad: hsl(4 68% 48%);
+  --color-bad-soft: hsl(4 70% 95%);
+
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-border: var(--color-line);
+  --color-muted-foreground: var(--color-muted);
+  --color-primary: var(--color-accent);
+  --color-primary-foreground: var(--color-paper);
+  --color-input: var(--color-line);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-rise: rise 0.7s var(--ease) both;
+  --animate-draw: draw 0.6s var(--ease) 0.35s both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@utility campo {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-line);
+  background-color: var(--color-paper);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-ink);
+}
+
+@utility rotulo {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: 0.375rem;
+}
+
+@utility botao-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background-color: var(--color-accent);
+  color: var(--color-paper);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}
+
+@utility botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
